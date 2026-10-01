@@ -1,0 +1,13 @@
+{
+  "name": "smart-traffic-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {"start": "node server.js"},
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mqtt": "^5.14.1",
+    "pg": "^8.16.3"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "author": "Smart Traffic Project Team",
+  "editor": "wokwi",
+  "parts": [
+    {"type":"wokwi-esp32-devkit-v1","id":"esp","top":10,"left":10,"attrs":{}},
+    {"type":"wokwi-hc-sr04","id":"usN","top":-10,"left":330,"attrs":{"distance":"80"}},
+    {"type":"wokwi-hc-sr04","id":"usE","top":120,"left":330,"attrs":{"distance":"45"}},
+    {"type":"wokwi-led","id":"nsR","top":-10,"left":170,"attrs":{"color":"red","label":"NS RED"}},
+    {"type":"wokwi-led","id":"nsY","top":30,"left":170,"attrs":{"color":"yellow","label":"NS YELLOW"}},
+    {"type":"wokwi-led","id":"nsG","top":70,"left":170,"attrs":{"color":"green","label":"NS GREEN"}},
+    {"type":"wokwi-led","id":"ewR","top":-10,"left":240,"attrs":{"color":"red","label":"EW RED"}},
+    {"type":"wokwi-led","id":"ewY","top":30,"left":240,"attrs":{"color":"yellow","label":"EW YELLOW"}},
+    {"type":"wokwi-led","id":"ewG","top":70,"left":240,"attrs":{"color":"green","label":"EW GREEN"}},
+    {"type":"wokwi-tm1637-7segment","id":"seg","top":150,"left":20,"attrs":{"color":"red"}},
+    {"type":"wokwi-lcd1602","id":"lcd","top":210,"left":20,"attrs":{"pins":"i2c","background":"blue","color":"white"}},
+    {"type":"wokwi-membrane-keypad","id":"keypad","top":360,"left":20,"attrs":{"columns":"4","keys":["1","2","3","A","4","5","6","B","7","8","9","C"]}},
+    {"type":"wokwi-buzzer","id":"buzz","top":360,"left":270,"attrs":{"volume":"0.2"}},
+    {"type":"wokwi-pushbutton","id":"auth","top":420,"left":270,"attrs":{"color":"green","label":"Fingerprint OK","key":"F"}},
+    {"type":"wokwi-text","id":"note","top":500,"left":20,"attrs":{"text":"Fingerprint button = simulated biometric success\nKeys: 1234 = PIN, A=Auto, B=NS, C=EW\nUltrasonic sensors = traffic density inputs"}}
+  ],
+  "connections": [
+    ["usN:VCC","esp:5V","red",[]],["usN:GND","esp:GND.1","black",[]],["usN:TRIG","esp:5","green",[]],["usN:ECHO","esp:34","blue",[]],
+    ["usE:VCC","esp:5V","red",[]],["usE:GND","esp:GND.1","black",[]],["usE:TRIG","esp:21","green",[]],["usE:ECHO","esp:35","blue",[]],
+    ["nsR:A","esp:13","red",[]],["nsR:C","esp:GND.1","black",[]],["nsY:A","esp:12","yellow",[]],["nsY:C","esp:GND.1","black",[]],["nsG:A","esp:14","green",[]],["nsG:C","esp:GND.1","black",[]],
+    ["ewR:A","esp:27","red",[]],["ewR:C","esp:GND.1","black",[]],["ewY:A","esp:25","yellow",[]],["ewY:C","esp:GND.1","black",[]],["ewG:A","esp:19","green",[]],["ewG:C","esp:GND.1","black",[]],
+    ["seg:VCC","esp:3V3","red",[]],["seg:GND","esp:GND.1","black",[]],["seg:CLK","esp:23","green",[]],["seg:DIO","esp:22","blue",[]],
+    ["lcd:VCC","esp:5V","red",[]],["lcd:GND","esp:GND.1","black",[]],["lcd:SDA","esp:16","green",[]],["lcd:SCL","esp:17","blue",[]],
+    ["keypad:R1","esp:32","green",[]],["keypad:R2","esp:33","green",[]],["keypad:R3","esp:26","green",[]],["keypad:C1","esp:2","blue",[]],["keypad:C2","esp:4","blue",[]],["keypad:C3","esp:15","blue",[]],["keypad:C4","esp:0","blue",[]],
+    ["buzz:1","esp:18","purple",[]],["buzz:2","esp:GND.1","black",[]],["auth:1.l","esp:3","green",[]],["auth:2.l","esp:GND.1","black",[]]
+  ],
+  "serialMonitor": {"display":"always","newline":"lf"}
+}
