@@ -1,0 +1,290 @@
+{
+  "version": 1,
+  "author": "Smart Traffic Project Team",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 60, "left": 520, "attrs": {} },
+    {
+      "type": "wokwi-text",
+      "id": "title",
+      "top": -90,
+      "left": 200,
+      "attrs": { "text": "SMART TRAFFIC MANAGEMENT SYSTEM", "color": "#1565C0", "font": "4" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "nsSignalLabel",
+      "top": -20,
+      "left": 40,
+      "attrs": { "text": "NORTH-SOUTH SIGNAL", "color": "#D32F2F", "font": "2" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "nsR",
+      "top": 20,
+      "left": 60,
+      "attrs": { "color": "red", "label": "NS RED" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "nsY",
+      "top": 20,
+      "left": 110,
+      "attrs": { "color": "yellow", "label": "NS YEL" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "nsG",
+      "top": 20,
+      "left": 160,
+      "attrs": { "color": "green", "label": "NS GRN" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rNsR",
+      "top": 94,
+      "left": 40,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rNsY",
+      "top": 94,
+      "left": 90,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rNsG",
+      "top": 94,
+      "left": 140,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "ewSignalLabel",
+      "top": -20,
+      "left": 240,
+      "attrs": { "text": "EAST-WEST SIGNAL", "color": "#1565C0", "font": "2" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ewR",
+      "top": 20,
+      "left": 260,
+      "attrs": { "color": "red", "label": "EW RED" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ewY",
+      "top": 20,
+      "left": 310,
+      "attrs": { "color": "yellow", "label": "EW YEL" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ewG",
+      "top": 20,
+      "left": 360,
+      "attrs": { "color": "green", "label": "EW GRN" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rEwR",
+      "top": 94,
+      "left": 240,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rEwY",
+      "top": 94,
+      "left": 290,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rEwG",
+      "top": 94,
+      "left": 340,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "sensorNLabel",
+      "top": -50,
+      "left": 760,
+      "attrs": { "text": "N-S VEHICLE DETECTION", "color": "#008000", "font": "1" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "usN",
+      "top": -30,
+      "left": 760,
+      "attrs": { "distance": "143" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "sensorELabel",
+      "top": 120,
+      "left": 760,
+      "attrs": { "text": "E-W VEHICLE DETECTION", "color": "#008000", "font": "1" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "usE",
+      "top": 140,
+      "left": 760,
+      "attrs": { "distance": "45" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "countdownLabel",
+      "top": 290,
+      "left": 760,
+      "attrs": { "text": "SIGNAL COUNTDOWN", "color": "#D32F2F", "font": "2" }
+    },
+    {
+      "type": "wokwi-tm1637-7segment",
+      "id": "seg",
+      "top": 297.56,
+      "left": 947.83,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "lcdLabel",
+      "top": 420,
+      "left": 700,
+      "attrs": { "text": "TRAFFIC MONITORING DISPLAY", "color": "#1565C0", "font": "2" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd",
+      "top": 440,
+      "left": 700,
+      "attrs": { "pins": "i2c", "background": "blue", "color": "white" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "keypadLabel",
+      "top": 230,
+      "left": 120,
+      "attrs": { "text": "SECURITY & MANUAL CONTROL", "color": "#6A1B9A", "font": "2" }
+    },
+    { "type": "wokwi-membrane-keypad", "id": "keypad", "top": 260, "left": 120, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "puVP",
+      "top": 120,
+      "left": 400,
+      "attrs": { "value": "10000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "puVN",
+      "top": 160,
+      "left": 400,
+      "attrs": { "value": "10000" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "authLabel",
+      "top": 470,
+      "left": 400,
+      "attrs": { "text": "BIOMETRIC AUTHENTICATION", "color": "#2E7D32", "font": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "auth",
+      "top": 490,
+      "left": 420,
+      "attrs": { "color": "green", "label": "Fingerprint OK", "key": "f" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "buzzerLabel",
+      "top": 400,
+      "left": 540,
+      "attrs": { "text": "AUTH BUZZER", "color": "#FF8F00", "font": "1" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzz",
+      "top": 420,
+      "left": 540,
+      "attrs": { "volume": "0.2" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "note",
+      "top": 620,
+      "left": 40,
+      "attrs": {
+        "text": "SYSTEM FEATURES\nAdaptive traffic timing\nUltrasonic traffic density sensing\nMQTT remote monitoring\nPIN: 1234\nKeys: A = AUTO | B = NS | C = EW\nF = Simulated fingerprint authentication",
+        "color": "#333333",
+        "font": "2"
+      }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "usN:VCC", "esp:VIN", "red", [] ],
+    [ "usN:GND", "esp:GND.2", "black", [] ],
+    [ "usN:TRIG", "esp:D5", "green", [] ],
+    [ "usN:ECHO", "esp:D34", "blue", [] ],
+    [ "usE:VCC", "esp:VIN", "red", [] ],
+    [ "usE:GND", "esp:GND.2", "black", [] ],
+    [ "usE:TRIG", "esp:D21", "green", [] ],
+    [ "usE:ECHO", "esp:D35", "blue", [] ],
+    [ "esp:D13", "rNsR:2", "red", [] ],
+    [ "rNsR:1", "nsR:A", "red", [] ],
+    [ "nsR:C", "esp:GND.1", "black", [] ],
+    [ "esp:D12", "rNsY:2", "gold", [] ],
+    [ "rNsY:1", "nsY:A", "gold", [] ],
+    [ "nsY:C", "esp:GND.1", "black", [] ],
+    [ "esp:D14", "rNsG:2", "green", [] ],
+    [ "rNsG:1", "nsG:A", "green", [] ],
+    [ "nsG:C", "esp:GND.1", "black", [] ],
+    [ "esp:D27", "rEwR:2", "red", [] ],
+    [ "rEwR:1", "ewR:A", "red", [] ],
+    [ "ewR:C", "esp:GND.1", "black", [] ],
+    [ "esp:D25", "rEwY:2", "gold", [] ],
+    [ "rEwY:1", "ewY:A", "gold", [] ],
+    [ "ewY:C", "esp:GND.1", "black", [] ],
+    [ "esp:D19", "rEwG:2", "green", [] ],
+    [ "rEwG:1", "ewG:A", "green", [] ],
+    [ "ewG:C", "esp:GND.1", "black", [] ],
+    [ "seg:VCC", "esp:3V3", "red", [] ],
+    [ "seg:GND", "esp:GND.2", "black", [] ],
+    [ "seg:CLK", "esp:D23", "green", [] ],
+    [ "seg:DIO", "esp:D22", "blue", [] ],
+    [ "lcd:VCC", "esp:VIN", "red", [] ],
+    [ "lcd:GND", "esp:GND.2", "black", [] ],
+    [ "lcd:SDA", "esp:RX2", "green", [] ],
+    [ "lcd:SCL", "esp:TX2", "blue", [] ],
+    [ "keypad:R1", "esp:VP", "green", [] ],
+    [ "keypad:R2", "esp:D33", "green", [] ],
+    [ "keypad:R3", "esp:D26", "green", [] ],
+    [ "keypad:C1", "esp:D2", "blue", [] ],
+    [ "keypad:C2", "esp:D4", "blue", [] ],
+    [ "keypad:C3", "esp:D15", "blue", [] ],
+    [ "keypad:C4", "esp:D32", "blue", [] ],
+    [ "puVP:1", "esp:3V3", "orange", [] ],
+    [ "puVP:2", "esp:VP", "orange", [] ],
+    [ "puVN:1", "esp:3V3", "orange", [] ],
+    [ "puVN:2", "esp:VN", "orange", [] ],
+    [ "buzz:1", "esp:D18", "purple", [] ],
+    [ "buzz:2", "esp:GND.1", "black", [] ],
+    [ "auth:1.l", "esp:VN", "green", [] ],
+    [ "auth:2.l", "esp:GND.1", "black", [] ]
+  ],
+  "dependencies": {}
+}
